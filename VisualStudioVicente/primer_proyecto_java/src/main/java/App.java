@@ -7,7 +7,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         int option;
         do {
-            System.out.println("Calculadora de Área by Marcos")
+            System.out.println("Calculadora de Área de Marcos")
             System.out.println("Seleccione una opción")
             System.out.println("1. Círculo");
             System.out.println("2. Cuadrado");
