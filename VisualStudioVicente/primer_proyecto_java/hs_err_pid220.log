@@ -1,0 +1,371 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes. Error detail: Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (arena.cpp:168), pid=220, tid=416
+#
+# JRE version: OpenJDK Runtime Environment Temurin-21.0.5+11 (21.0.5+11) (build 21.0.5+11-LTS)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-21.0.5+11 (21.0.5+11-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, serial gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+ShowCodeDetailsInExceptionMessages main.java.App
+
+Host: Intel(R) Core(TM) i5-10600K CPU @ 4.10GHz, 1 cores, 1G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Sun Dec  1 14:53:11 2024 Hora estándar romance elapsed time: 0.207231 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002231c446320):  JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=416, stack(0x000000d1c6100000,0x000000d1c6200000) (1024K)]
+
+
+Current CompileTask:
+C2:207   84       4       java.util.regex.Matcher::search (154 bytes)
+
+Stack: [0x000000d1c6100000,0x000000d1c6200000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6cd4e9]
+V  [jvm.dll+0x8a7941]
+V  [jvm.dll+0x8a9e6e]
+V  [jvm.dll+0x8aa543]
+V  [jvm.dll+0x27f6d6]
+V  [jvm.dll+0xc500d]
+V  [jvm.dll+0xc5543]
+V  [jvm.dll+0x656a4b]
+V  [jvm.dll+0x65c629]
+V  [jvm.dll+0x65d616]
+V  [jvm.dll+0x65b9ae]
+V  [jvm.dll+0x247855]
+V  [jvm.dll+0x246faf]
+V  [jvm.dll+0x1c75ce]
+V  [jvm.dll+0x25682a]
+V  [jvm.dll+0x254dca]
+V  [jvm.dll+0x3f00d6]
+V  [jvm.dll+0x8514fb]
+V  [jvm.dll+0x6cbbed]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17344]
+C  [ntdll.dll+0x526b1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000002231c4f33d0, length=11, elements={
+0x000002231a6e8710, 0x000002231c43cc90, 0x000002231c43dc50, 0x000002231c43eb60,
+0x000002231c43fa70, 0x000002231c441830, 0x000002231c442480, 0x000002231c446320,
+0x000002231c4b2430, 0x000002231c519390, 0x000002231c519bb0
+}
+
+Java Threads: ( => current thread )
+  0x000002231a6e8710 JavaThread "main"                              [_thread_in_vm, id=3424, stack(0x000000d1c5800000,0x000000d1c5900000) (1024K)]
+  0x000002231c43cc90 JavaThread "Reference Handler"          daemon [_thread_blocked, id=1820, stack(0x000000d1c5b00000,0x000000d1c5c00000) (1024K)]
+  0x000002231c43dc50 JavaThread "Finalizer"                  daemon [_thread_blocked, id=3864, stack(0x000000d1c5c00000,0x000000d1c5d00000) (1024K)]
+  0x000002231c43eb60 JavaThread "Signal Dispatcher"          daemon [_thread_blocked, id=4448, stack(0x000000d1c5d00000,0x000000d1c5e00000) (1024K)]
+  0x000002231c43fa70 JavaThread "Attach Listener"            daemon [_thread_blocked, id=3484, stack(0x000000d1c5e00000,0x000000d1c5f00000) (1024K)]
+  0x000002231c441830 JavaThread "Service Thread"             daemon [_thread_blocked, id=5236, stack(0x000000d1c5f00000,0x000000d1c6000000) (1024K)]
+  0x000002231c442480 JavaThread "Monitor Deflation Thread"   daemon [_thread_blocked, id=4872, stack(0x000000d1c6000000,0x000000d1c6100000) (1024K)]
+=>0x000002231c446320 JavaThread "C2 CompilerThread0"         daemon [_thread_in_native, id=416, stack(0x000000d1c6100000,0x000000d1c6200000) (1024K)]
+  0x000002231c4b2430 JavaThread "C1 CompilerThread0"         daemon [_thread_blocked, id=4592, stack(0x000000d1c6200000,0x000000d1c6300000) (1024K)]
+  0x000002231c519390 JavaThread "Notification Thread"        daemon [_thread_blocked, id=4228, stack(0x000000d1c6300000,0x000000d1c6400000) (1024K)]
+  0x000002231c519bb0 JavaThread "Common-Cleaner"             daemon [_thread_blocked, id=1240, stack(0x000000d1c6400000,0x000000d1c6500000) (1024K)]
+Total: 11
+
+Other Threads:
+  0x000002231c8efc00 VMThread "VM Thread"                           [id=4608, stack(0x000000d1c5a00000,0x000000d1c5b00000) (1024K)]
+  0x000002231c8e0b60 WatcherThread "VM Periodic Task Thread"        [id=3120, stack(0x000000d1c5900000,0x000000d1c5a00000) (1024K)]
+Total: 2
+
+Threads with active compile tasks:
+C2 CompilerThread0  264   84       4       java.util.regex.Matcher::search (154 bytes)
+Total: 1
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x00000000e0000000, size: 512 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000022334000000-0x0000022334c80000-0x0000022334c80000), size 13107200, SharedBaseAddress: 0x0000022334000000, ArchiveRelocationMode: 1.
+Compressed class space mapped at: 0x0000022335000000-0x0000022375000000, reserved size: 1073741824
+Narrow klass base: 0x0000022334000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CardTable entry size: 512
+ CPUs: 1 total, 1 available
+ Memory: 2047M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (32-bit)
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 32M
+ Heap Max Capacity: 512M
+ Pre-touch: Disabled
+
+Heap:
+ def new generation   total 9792K, used 2121K [0x00000000e0000000, 0x00000000e0aa0000, 0x00000000eaaa0000)
+  eden space 8704K,  24% used [0x00000000e0000000, 0x00000000e0212668, 0x00000000e0880000)
+  from space 1088K,   0% used [0x00000000e0880000, 0x00000000e0880000, 0x00000000e0990000)
+  to   space 1088K,   0% used [0x00000000e0990000, 0x00000000e0990000, 0x00000000e0aa0000)
+ tenured generation   total 21888K, used 0K [0x00000000eaaa0000, 0x00000000ec000000, 0x0000000100000000)
+   the space 21888K,   0% used [0x00000000eaaa0000, 0x00000000eaaa0000, 0x00000000eaaa0200, 0x00000000ec000000)
+ Metaspace       used 406K, committed 576K, reserved 1114112K
+  class space    used 27K, committed 128K, reserved 1048576K
+
+Card table byte_map: [0x000002231c1f0000,0x000002231c300000] _byte_map_base: 0x000002231baf0000
+
+Polling page: 0x000002231a9c0000
+
+Metaspace:
+
+Usage:
+  Non-class:    379.08 KB used.
+      Class:     27.54 KB used.
+       Both:    406.62 KB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,     448.00 KB ( <1%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,     128.00 KB ( <1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,     576.00 KB ( <1%) committed. 
+
+Chunk freelists:
+   Non-Class:  11.95 MB
+       Class:  15.74 MB
+        Both:  27.70 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 21.00 MB
+CDS: on
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - use_allocation_guard: 0.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 0.
+num_arena_births: 8.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 9.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 0.
+num_chunks_taken_from_freelist: 12.
+num_chunk_merges: 0.
+num_chunk_splits: 7.
+num_chunks_enlarged: 2.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120064Kb used=51Kb max_used=51Kb free=120013Kb
+ bounds [0x000002232c9e0000, 0x000002232cc50000, 0x0000022333f20000]
+CodeHeap 'profiled nmethods': size=120000Kb used=52Kb max_used=52Kb free=119947Kb
+ bounds [0x0000022324f20000, 0x0000022325190000, 0x000002232c450000]
+CodeHeap 'non-nmethods': size=5696Kb used=1133Kb max_used=1133Kb free=4562Kb
+ bounds [0x000002232c450000, 0x000002232c6c0000, 0x000002232c9e0000]
+ total_blobs=481 nmethods=100 adapters=289
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (1 events):
+Event: 0.161 Thread 0x000002231c446320   84       4       java.util.regex.Matcher::search (154 bytes)
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (3 events):
+Event: 0.005 Loaded shared library C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\java.dll
+Event: 0.053 Loaded shared library C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\jsvml.dll
+Event: 0.152 Loaded shared library C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\jimage.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (20 events):
+Event: 0.111 Loading class jdk/internal/loader/URLClassPath$FileLoader
+Event: 0.111 Loading class jdk/internal/loader/URLClassPath$FileLoader done
+Event: 0.112 Loading class jdk/internal/loader/URLClassPath$FileLoader$1
+Event: 0.112 Loading class jdk/internal/loader/URLClassPath$FileLoader$1 done
+Event: 0.138 Loading class java/util/Scanner
+Event: 0.138 Loading class java/util/Scanner done
+Event: 0.148 Loading class java/io/InputStreamReader
+Event: 0.148 Loading class java/io/Reader
+Event: 0.148 Loading class java/io/Reader done
+Event: 0.148 Loading class java/io/InputStreamReader done
+Event: 0.148 Loading class sun/nio/cs/StreamDecoder
+Event: 0.148 Loading class sun/nio/cs/StreamDecoder done
+Event: 0.148 Loading class sun/nio/cs/UTF_8$Decoder
+Event: 0.148 Loading class sun/nio/cs/UTF_8$Decoder done
+Event: 0.149 Loading class java/util/Scanner$PatternLRUCache
+Event: 0.149 Loading class java/util/Scanner$PatternLRUCache done
+Event: 0.151 Loading class jdk/internal/module/ModulePatcher$PatchedModuleReader
+Event: 0.151 Loading class jdk/internal/module/ModulePatcher$PatchedModuleReader done
+Event: 0.153 Loading class sun/net/www/protocol/jrt/Handler
+Event: 0.153 Loading class sun/net/www/protocol/jrt/Handler done
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Memory protections (0 events):
+No events
+
+Nmethod flushes (0 events):
+No events
+
+Events (11 events):
+Event: 0.018 Thread 0x000002231a6e8710 Thread added: 0x000002231a6e8710
+Event: 0.049 Thread 0x000002231a6e8710 Thread added: 0x000002231c43cc90
+Event: 0.049 Thread 0x000002231a6e8710 Thread added: 0x000002231c43dc50
+Event: 0.049 Thread 0x000002231a6e8710 Thread added: 0x000002231c43eb60
+Event: 0.049 Thread 0x000002231a6e8710 Thread added: 0x000002231c43fa70
+Event: 0.049 Thread 0x000002231a6e8710 Thread added: 0x000002231c441830
+Event: 0.049 Thread 0x000002231a6e8710 Thread added: 0x000002231c442480
+Event: 0.049 Thread 0x000002231a6e8710 Thread added: 0x000002231c446320
+Event: 0.061 Thread 0x000002231a6e8710 Thread added: 0x000002231c4b2430
+Event: 0.111 Thread 0x000002231a6e8710 Thread added: 0x000002231c519390
+Event: 0.137 Thread 0x000002231a6e8710 Thread added: 0x000002231c519bb0
+
+
+Dynamic libraries:
+0x00007ff7e4740000 - 0x00007ff7e474e000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\java.exe
+0x00007ff944df0000 - 0x00007ff944fe8000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ff943100000 - 0x00007ff9431bd000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ff942ad0000 - 0x00007ff942dc6000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ff942730000 - 0x00007ff942830000 	C:\Windows\System32\ucrtbase.dll
+0x00007ff938330000 - 0x00007ff938348000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\jli.dll
+0x00007ff9438e0000 - 0x00007ff943a7e000 	C:\Windows\System32\USER32.dll
+0x00007ff942830000 - 0x00007ff942852000 	C:\Windows\System32\win32u.dll
+0x00007ff9431d0000 - 0x00007ff9431fc000 	C:\Windows\System32\GDI32.dll
+0x00007ff942580000 - 0x00007ff94269a000 	C:\Windows\System32\gdi32full.dll
+0x00007ff942860000 - 0x00007ff9428fd000 	C:\Windows\System32\msvcp_win.dll
+0x00007ff936b60000 - 0x00007ff936b7e000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\VCRUNTIME140.dll
+0x00007ff929f00000 - 0x00007ff92a19a000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5\COMCTL32.dll
+0x00007ff944650000 - 0x00007ff9446ee000 	C:\Windows\System32\msvcrt.dll
+0x00007ff9447b0000 - 0x00007ff9447e0000 	C:\Windows\System32\IMM32.DLL
+0x00007ff936a70000 - 0x00007ff936a7c000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\vcruntime140_1.dll
+0x00007ff9331b0000 - 0x00007ff93323d000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\msvcp140.dll
+0x00007ff9077a0000 - 0x00007ff90852f000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\server\jvm.dll
+0x00007ff944700000 - 0x00007ff9447af000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ff9437d0000 - 0x00007ff94386c000 	C:\Windows\System32\sechost.dll
+0x00007ff9436a0000 - 0x00007ff9437c6000 	C:\Windows\System32\RPCRT4.dll
+0x00007ff943870000 - 0x00007ff9438db000 	C:\Windows\System32\WS2_32.dll
+0x00007ff942280000 - 0x00007ff9422cb000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ff928500000 - 0x00007ff928527000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ff93b3c0000 - 0x00007ff93b3ca000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ff942260000 - 0x00007ff942272000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ff9403b0000 - 0x00007ff9403c2000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ff936a60000 - 0x00007ff936a6a000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\jimage.dll
+0x00007ff930510000 - 0x00007ff9306f4000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ff9304d0000 - 0x00007ff930504000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ff9426a0000 - 0x00007ff942722000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ff936a40000 - 0x00007ff936a5f000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\java.dll
+0x00007ff943f00000 - 0x00007ff944645000 	C:\Windows\System32\SHELL32.dll
+0x00007ff9405b0000 - 0x00007ff940d4b000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ff943270000 - 0x00007ff9435c4000 	C:\Windows\System32\combase.dll
+0x00007ff941e40000 - 0x00007ff941e6d000 	C:\Windows\SYSTEM32\Wldp.dll
+0x00007ff944890000 - 0x00007ff94493d000 	C:\Windows\System32\SHCORE.dll
+0x00007ff942e50000 - 0x00007ff942ea5000 	C:\Windows\System32\shlwapi.dll
+0x00007ff942400000 - 0x00007ff942425000 	C:\Windows\SYSTEM32\profapi.dll
+0x00007ff92f730000 - 0x00007ff92f807000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\jsvml.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5;C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin\server
+
+VM Arguments:
+jvm_args: -XX:+ShowCodeDetailsInExceptionMessages 
+java_command: main.java.App
+java_class_path (initial): C:\Users\holah\Desktop\VisualStudioVicente\primer_proyecto_java\bin
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 2                                         {product} {ergonomic}
+   size_t InitialHeapSize                          = 33554432                                  {product} {ergonomic}
+   size_t MaxHeapSize                              = 536870912                                 {product} {ergonomic}
+   size_t MaxNewSize                               = 178913280                                 {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 196608                                    {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+   size_t NewSize                                  = 11141120                                  {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5826188                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122916026                              {pd product} {ergonomic}
+   size_t OldSize                                  = 22413312                                  {product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122916026                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool ShowCodeDetailsInExceptionMessages       = true                                   {manageable} {command line}
+   size_t SoftMaxHeapSize                          = 536870912                              {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+     bool UseSerialGC                              = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+PATH=C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\holah\AppData\Local\Microsoft\WindowsApps;C:\Users\holah\AppData\Local\Programs\Microsoft VS Code\bin
+USERNAME=holah
+LANG=en_US.UTF-8
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
+TMP=C:\Users\holah\AppData\Local\Temp
+TEMP=C:\Users\holah\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+OS uptime: 0 days 1:07 hours
+
+CPU: total 1 (initial active 1) (1 cores per cpu, 1 threads per core) family 6 model 165 stepping 5 microcode 0x0, cx8, cmov, fxsr, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, clmul, bmi1, bmi2, vzeroupper, clflush, clflushopt, hv, rdtscp
+Processor Information for all 1 processors :
+  Max Mhz: 4104, Current Mhz: 4104, Mhz Limit: 4104
+
+Memory: 4k page, system-wide physical 2047M (232M free)
+TotalPageFile size 3634M (AvailPageFile size 1M)
+current process WorkingSet (physical memory assigned to process): 33M, peak: 33M
+current process commit charge ("private bytes"): 60M, peak: 60M
+
+vm_info: OpenJDK 64-Bit Server VM (21.0.5+11-LTS) for windows-amd64 JRE (21.0.5+11-LTS), built on 2024-10-15T00:00:00Z by "admin" with MS VC++ 17.7 (VS2022)
+
+END.
